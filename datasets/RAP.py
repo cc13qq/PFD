@@ -1360,7 +1360,7 @@ def cal_dis(features, memory = None, dis_type = 'MultivariateNormal', device = '
 def load_dis(atk_method = 'FGSM', dataset_name = 'CIFAR10', eps = None):
     
     # if dataset_name == 'CIFAR10':
-    save_root = 'E:/Files/code/Adv_Defense/Detection/Self-Perturbation/data/dist'
+    save_root = '../data/dist'
     
     if eps is None:
         eps = 8 if dataset_name == 'CIFAR10' else 4
