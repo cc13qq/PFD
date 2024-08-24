@@ -8,15 +8,8 @@ Testing...
 Epoch 005 | Batch 4600 | Time 45824s | Train Loss 0.2214 | 
 Val AvgLoss 0.6260 | Val AvgAcc 0.8428 | Val AvgAUC 0.9912
 	 Val metrics on set Real: Loss 0.2264 | Acc 0.9927
-	 Val metrics on set Gradient-advs: AvgLoss 0.6260 | AvgAcc 0.6929 | AvgAUC 0.9912
-	 	 Val metrics on subset BIM: Loss 0.6390 | Acc 0.6827 | AUC 0.9911
+	 Val metrics on set Gradient-advs: AvgLoss 0.6461 | AvgAcc 0.6756 | AvgAUC 0.9910
 	 	 Val metrics on subset PGD: Loss 0.6461 | Acc 0.6756 | AUC 0.9910
-	 	 Val metrics on subset RFGSM: Loss 0.6402 | Acc 0.6816 | AUC 0.9912
-	 	 Val metrics on subset DIFGSM: Loss 0.8139 | Acc 0.5517 | AUC 0.9857
-	 	 Val metrics on subset MIFGSM: Loss 0.5531 | Acc 0.7468 | AUC 0.9931
-	 	 Val metrics on subset NIFGSM: Loss 0.5458 | Acc 0.7535 | AUC 0.9935
-	 	 Val metrics on subset VNIFGSM: Loss 0.7522 | Acc 0.5996 | AUC 0.9879
-	 	 Val metrics on subset SINIFGSM: Loss 0.6416 | Acc 0.6828 | AUC 0.9911
 
 Training Completed! Best AUC: 0.9912 at epoch 5
 ──────────────────────────────────────────────────────────────────────

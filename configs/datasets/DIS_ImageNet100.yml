@@ -28,34 +28,13 @@ dataset:
       data_dir: 
       imglist_pth: ./data/SP_general_new/imagenet100_val.labels.txt
     Gradient-advs:
-      subsets: ['FGSM', 'BIM', 'PGD', 'RFGSM', 'DIFGSM', 'MIFGSM', 'NIFGSM', 'VNIFGSM', 'SINIFGSM']
+      subsets: ['FGSM', 'PGD']
       FGSM:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-FGSM-eps4_val.labels.txt
-      BIM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_val.labels.txt
       PGD:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_val.labels.txt
-      RFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_val.labels.txt
-      DIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_val.labels.txt
-      MIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_val.labels.txt
-      NIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_val.labels.txt
-      VNIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_val.labels.txt
-      SINIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_val.labels.txt
 
   test:
     dataset_class: ImglistDataset
@@ -68,31 +47,10 @@ dataset:
       data_dir: 
       imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
     Gradient-advs:
-      subsets: ['FGSM', 'BIM', 'PGD', 'RFGSM', 'DIFGSM', 'MIFGSM', 'NIFGSM', 'VNIFGSM', 'SINIFGSM']
+      subsets: ['FGSM', 'PGD']
       FGSM:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-FGSM-eps4_test.labels.txt
-      BIM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
       PGD:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
-      RFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
-      DIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
-      MIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
-      NIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
-      VNIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
-      SINIFGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt

@@ -28,25 +28,13 @@ dataset:
       data_dir: 
       imglist_pth: ./data/SP_general_new/imagenet100-real-img-eps4_val.labels.txt
     Generative-advs:
-      subsets: [CDA, CDA-gs, diff-attack-2, diff-pgd, M3D, TTP]
+      subsets: [CDA, diff-pgd]
       CDA:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-FGSM-eps4_val.labels.txt
-      CDA-gs:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_val.labels.txt
-      diff-attack-2:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_val.labels.txt
       diff-pgd:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_val.labels.txt
-      M3D:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_val.labels.txt
-      TTP:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_val.labels.txt
 
   test:
     dataset_class: ImglistDataset
@@ -59,22 +47,10 @@ dataset:
       data_dir: 
       imglist_pth: ./data/SP_general_new/imagenet100-real-img-eps4_test.labels.txt
     Generative-advs:
-      subsets: [CDA, CDA-gs, diff-attack-2, diff-pgd, M3D, TTP]
+      subsets: [CDA, diff-pgd]
       CDA:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-CDA-eps4_test.labels.txt
-      CDA-gs:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-CDA-gs-eps4_test.labels.txt
-      diff-attack-2:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-diff-attack-2-eps4_test.labels.txt
       diff-pgd:
         data_dir: 
         imglist_pth: ./data/SP_general_new/imagenet100-diff-pgd-eps4_test.labels.txt
-      M3D:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-M3D-eps4_test.labels.txt
-      TTP:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-TTP-eps4_test.labels.txt
