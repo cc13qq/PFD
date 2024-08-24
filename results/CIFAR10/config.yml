@@ -1,0 +1,515 @@
+!!python/object/new:utils.config.Config
+state:
+  dataset:
+    name: DIS_CIFAR10
+    split_names: &id001
+    - train
+    - test
+    num_classes: 2
+    pre_size: 32
+    image_size: 256
+    num_workers: 8
+    num_gpus: 1
+    num_machines: 1
+    dataset_name: CIFAR10
+    mode: DIS
+    eps: 4
+    train:
+      dataset_class: ImglistDataset_SP
+      data_dir: null
+      imglist_pth: ./data/SP_general_new/cifar10_train.labels.txt
+      batch_size: 100
+      shuffle: true
+      interpolation: bilinear
+      dataset_class: ImglistDataset
+      batch_size: 50
+      shuffle: false
+      interpolation: bilinear
+      set_names: &id002
+      - Real
+      - Gradient-advs
+      Real:
+        data_dir: null
+        imglist_pth: ./data/SP_general_new/cifar10_val.labels.txt
+      Gradient-advs:
+        subsets: &id003
+        - bim
+        - pgd
+        - rfgsm
+        - difgsm
+        - mifgsm
+        - nifgsm
+        - vnifgsm
+        - sinifgsm
+        bim:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_val.labels.txt
+        pgd:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_val.labels.txt
+        rfgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_val.labels.txt
+        difgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_val.labels.txt
+        mifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_val.labels.txt
+        nifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_val.labels.txt
+        vnifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_val.labels.txt
+        sinifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_val.labels.txt
+    test:
+      dataset_class: ImglistDataset
+      batch_size: 32
+      shuffle: false
+      interpolation: bilinear
+      set_names: &id004
+      - Real
+      - Gradient-advs
+      Real:
+        data_dir: null
+        imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+      Gradient-advs:
+        subsets: &id005
+        - bim
+        - pgd
+        - rfgsm
+        - difgsm
+        - mifgsm
+        - nifgsm
+        - vnifgsm
+        - sinifgsm
+        bim:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+        pgd:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+        rfgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+        difgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+        mifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+        nifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+        vnifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+        sinifgsm:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+  exp_name: X_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base
+  output_dir: ./results/X_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base
+  save_output: true
+  force_merge: true
+  num_classes: 2
+  mark: DIS_base
+  num_gpus: 1
+  num_workers: 8
+  num_machines: 1
+  machine_rank: 0
+  sample_number: 1000
+  sample_from: 10000
+  select: 1
+  feature_dim: 2048
+  class_real: &id006
+  - 1
+  seed: 3407
+  pipeline:
+    name: SP_train
+  trainer:
+    name: SP_base
+    loss_weight: 0.1
+  evaluator:
+    name: SP
+    mode: weight
+    recall: 0.95
+    score_set: all
+    th_p: null
+    th_all: null
+  optimizer:
+    num_epochs: 10
+    logbatch: 50
+    learning_rate: 0.0002
+    lr: 0.0002
+    momentum: 0.9
+    weight_decay: 5.0e-06
+  recorder:
+    name: SP
+    save_all_models: false
+  preprocessor:
+    name: base
+  postprocessor:
+    name: SP
+    mode: loss
+    postprocessor_args:
+      temperature: 1
+  network:
+    name: X_sep
+    num_classes: 2
+    pretrained: false
+    checkpoint: ./networks/xception-b5690688.pth
+    num_gpus: 1
+  start_epoch: 0
+dictitems:
+  dataset: !!python/object/new:utils.config.Config
+    state:
+      name: DIS_CIFAR10
+      split_names: *id001
+      num_classes: 2
+      pre_size: 32
+      image_size: 256
+      num_workers: 8
+      num_gpus: 1
+      num_machines: 1
+      dataset_name: CIFAR10
+      mode: DIS
+      eps: 4
+      train:
+        dataset_class: ImglistDataset_SP
+        data_dir: null
+        imglist_pth: ./data/SP_general_new/cifar10_train.labels.txt
+        batch_size: 100
+        shuffle: true
+        interpolation: bilinear
+      val:
+        dataset_class: ImglistDataset
+        batch_size: 50
+        shuffle: false
+        interpolation: bilinear
+        set_names: *id002
+        Real:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10_val.labels.txt
+        Gradient-advs:
+          subsets: *id003
+          bim:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_val.labels.txt
+          pgd:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_val.labels.txt
+          rfgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_val.labels.txt
+          difgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_val.labels.txt
+          mifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_val.labels.txt
+          nifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_val.labels.txt
+          vnifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_val.labels.txt
+          sinifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_val.labels.txt
+      test:
+        dataset_class: ImglistDataset
+        batch_size: 32
+        shuffle: false
+        interpolation: bilinear
+        set_names: *id004
+        Real:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+        Gradient-advs:
+          subsets: *id005
+          bim:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+          pgd:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+          rfgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+          difgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+          mifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+          nifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+          vnifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+          sinifgsm:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+    dictitems:
+      name: DIS_CIFAR10
+      split_names: *id001
+      num_classes: 2
+      pre_size: 32
+      image_size: 256
+      num_workers: 8
+      num_gpus: 1
+      num_machines: 1
+      dataset_name: CIFAR10
+      mode: DIS
+      eps: 4
+      train: !!python/object/new:utils.config.Config
+        state:
+          dataset_class: ImglistDataset_SP
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10_train.labels.txt
+          batch_size: 100
+          shuffle: true
+          interpolation: bilinear
+        dictitems:
+          dataset_class: ImglistDataset_SP
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/cifar10_train.labels.txt
+          batch_size: 100
+          shuffle: true
+          interpolation: bilinear
+      test: !!python/object/new:utils.config.Config
+        state:
+          dataset_class: ImglistDataset
+          batch_size: 32
+          shuffle: false
+          interpolation: bilinear
+          set_names: *id004
+          Real:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+          Gradient-advs:
+            subsets: *id005
+            bim:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+            pgd:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+            rfgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+            difgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+            mifgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+            nifgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+            vnifgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+            sinifgsm:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+        dictitems:
+          dataset_class: ImglistDataset
+          batch_size: 32
+          shuffle: false
+          interpolation: bilinear
+          set_names: *id004
+          Real: !!python/object/new:utils.config.Config
+            state:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+            dictitems:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+          Gradient-advs: !!python/object/new:utils.config.Config
+            state:
+              subsets: *id005
+              bim:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+              pgd:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+              rfgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+              difgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+              mifgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+              nifgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+              vnifgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+              sinifgsm:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+            dictitems:
+              subsets: *id005
+              bim: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+              pgd: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+              rfgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+              difgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+              mifgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+              nifgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+              vnifgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+              sinifgsm: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+  exp_name: X_sep_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base
+  output_dir: ./results/X_sep_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base
+  save_output: true
+  force_merge: true
+  num_classes: 2
+  mark: DIS_base
+  num_gpus: 1
+  num_workers: 8
+  num_machines: 1
+  machine_rank: 0
+  sample_number: 1000
+  sample_from: 10000
+  select: 1
+  feature_dim: 2048
+  class_real: *id006
+  seed: 3407
+  pipeline: !!python/object/new:utils.config.Config
+    state:
+      name: SP_train_base
+    dictitems:
+      name: SP_train_base
+  trainer: !!python/object/new:utils.config.Config
+    state:
+      name: SP_base
+      loss_weight: 0.1
+    dictitems:
+      name: SP_base
+      loss_weight: 0.1
+  evaluator: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      mode: loss
+      recall: 0.95
+      score_set: all
+      th_p: null
+      th_all: null
+    dictitems:
+      name: SP
+      mode: loss
+      recall: 0.95
+      score_set: all
+      th_p: null
+      th_all: null
+  optimizer: !!python/object/new:utils.config.Config
+    state:
+      num_epochs: 10
+      logbatch: 50
+      learning_rate: 0.0002
+      lr: 0.0002
+      momentum: 0.9
+      weight_decay: 5.0e-06
+    dictitems:
+      num_epochs: 10
+      logbatch: 50
+      learning_rate: 0.0002
+      lr: 0.0002
+      momentum: 0.9
+      weight_decay: 5.0e-06
+  recorder: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      save_all_models: false
+    dictitems:
+      name: SP
+      save_all_models: false
+  preprocessor: !!python/object/new:utils.config.Config
+    state:
+      name: base
+    dictitems:
+      name: base
+  postprocessor: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      mode: loss
+      postprocessor_args:
+        temperature: 1
+    dictitems:
+      name: SP
+      mode: loss
+      postprocessor_args: !!python/object/new:utils.config.Config
+        state:
+          temperature: 1
+        dictitems:
+          temperature: 1
+  network: !!python/object/new:utils.config.Config
+    state:
+      name: X
+      num_classes: 2
+      pretrained: false
+      checkpoint: ./networks/xception-b5690688.pth
+      num_gpus: 1
+    dictitems:
+      name: X
+      num_classes: 2
+      pretrained: false
+      checkpoint: ./networks/xception-b5690688.pth
+      num_gpus: 1
+  start_epoch: 0

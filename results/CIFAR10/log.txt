@@ -1,0 +1,23 @@
+Loading distribution dict from ./data/dist/FGSM_eps4_noise_dist.pt
+Start training...
+
+saving net-last_epoch10.ckpt
+
+Testing...
+
+Epoch 002 | Batch 200 | Time  1846s | Train Loss 0.2282 | 
+Val AvgLoss 0.3769 | Val AvgAcc 0.9190 | Val AvgAUC 0.9709
+	 Val metrics on set Real: Loss 0.2790 | Acc 0.9600
+	 Val metrics on set Gradient-advs: AvgLoss 0.3769 | AvgAcc 0.8779 | AvgAUC 0.9709
+	 	 Val metrics on subset bim: Loss 0.2226 | Acc 0.9950 | AUC 0.9960
+	 	 Val metrics on subset pgd: Loss 0.2206 | Acc 0.9970 | AUC 0.9964
+	 	 Val metrics on subset rfgsm: Loss 0.2203 | Acc 0.9980 | AUC 0.9962
+	 	 Val metrics on subset difgsm: Loss 0.2225 | Acc 0.9960 | AUC 0.9957
+	 	 Val metrics on subset mifgsm: Loss 0.2177 | Acc 0.9990 | AUC 0.9972
+	 	 Val metrics on subset nifgsm: Loss 0.2173 | Acc 0.9990 | AUC 0.9976
+	 	 Val metrics on subset vnifgsm: Loss 0.2180 | Acc 0.9990 | AUC 0.9972
+	 	 Val metrics on subset sinifgsm: Loss 0.2179 | Acc 0.9990 | AUC 0.9969
+
+Training Completed! 
+──────────────────────────────────────────────────────────────────────
+Completed!

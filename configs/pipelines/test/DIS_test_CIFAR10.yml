@@ -1,0 +1,57 @@
+exp_name: "'@{pipeline.name}'_'@{network.name}'_'@{dataset.name}'_'@{mark}'"
+output_dir: ./results/
+save_output: True
+force_merge: True # disabled if 'save_output' is False
+num_classes: '@{dataset.num_classes}'
+mark: DIS_CIFAR10 # to mark the version of experiment
+
+num_gpus: 1
+num_workers: 8
+num_machines: 1
+machine_rank: 0
+epoch: 1
+
+seed: 3407
+
+pipeline:
+  name: SP_test_base
+
+evaluator:
+  name: SP
+  mode: loss
+  recall: 0.99
+  score_set: all
+  th_p: 
+  th_all: 
+
+recorder:
+  name: SP
+  save_scores: True
+  save_csv: True
+
+preprocessor:
+  name: base
+
+postprocessor:
+  name: SP
+  mode: loss
+  postprocessor_args:
+    temperature: 1
+
+parameters:
+  var_loc: 3
+  var_cov: 0.005
+  eps_low: 1
+  eps_high: 20
+
+network:
+  name: X
+  num_classes: '@{dataset.num_classes}'
+  pretrained: True          # set 'True' to load pretrained model
+  #checkpoint: './results/train-X_sep-GC_CA-e10_lr0.0002_wd5e-06-eps10_70-prob16_40-sl2_25-th50_50/net-best_epoch4_batch1200acc0.8840.ckpt'
+  # checkpoint: ./results/X_SP_base_SP_celebahq_e10_lr0.0002_wd5e-06_0/net-best_epoch4_batch1100acc0.9279.ckpt
+  checkpoint: ./results/X_sep_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base/net-best_epoch2_batch200auc0.9709.ckpt
+  # checkpoint: ./results/X_SP_base_LFW_ood_e10_lr0.0002_wd5e-06_0/net-best_epoch1_batch625acc1.0000.ckpt
+  # checkpoint: ./results/X_SP_base/net-best_celebahq.ckpt
+  num_gpus: '@{num_gpus}'
+

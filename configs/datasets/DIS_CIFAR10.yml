@@ -1,0 +1,99 @@
+dataset:
+  name: DIS_CIFAR10
+  split_names: [train, val, test]
+  num_classes: 2
+  pre_size: 32
+  image_size: 256
+  num_workers: '@{num_workers}'
+  num_gpus: '@{num_gpus}'
+  num_machines: '@{num_machines}'
+  dataset_name: 'CIFAR10'
+  mode: DIS
+  eps: 4
+  train:
+    dataset_class: ImglistDataset_SP
+    data_dir: 
+    imglist_pth: ./data/SP_general_new/cifar10_train.labels.txt
+    batch_size: 32
+    shuffle: True
+    interpolation: bilinear
+  val:
+    dataset_class: ImglistDataset
+    batch_size: 32
+    shuffle: False
+    interpolation: bilinear
+
+    set_names: [Real, Gradient-advs]
+    Real:
+      data_dir: 
+      imglist_pth: ./data/SP_general_new/cifar10_val.labels.txt
+    Gradient-advs:
+      subsets: ['FGSM', 'BIM', 'PGD', 'RFGSM', 'DIFGSM', 'MIFGSM', 'NIFGSM', 'VNIFGSM', 'SINIFGSM']
+      FGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-FGSM-eps4_val.labels.txt
+      BIM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_val.labels.txt
+      PGD:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_val.labels.txt
+      RFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_val.labels.txt
+      DIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_val.labels.txt
+      MIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_val.labels.txt
+      NIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_val.labels.txt
+      VNIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_val.labels.txt
+      SINIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_val.labels.txt
+
+  test:
+    dataset_class: ImglistDataset
+    batch_size: 32
+    shuffle: False
+    interpolation: bilinear
+
+    set_names: [Real, Gradient-advs]
+    Real:
+      data_dir: 
+      imglist_pth: ./data/SP_general_new/cifar10_test.labels.txt
+    Gradient-advs:
+      subsets: ['FGSM', 'BIM', 'PGD', 'RFGSM', 'DIFGSM', 'MIFGSM', 'NIFGSM', 'VNIFGSM', 'SINIFGSM']
+      FGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-FGSM-eps4_test.labels.txt
+      BIM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-BIM-eps4_test.labels.txt
+      PGD:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_test.labels.txt
+      RFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-RFGSM-eps4_test.labels.txt
+      DIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-DIFGSM-eps4_test.labels.txt
+      MIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-MIFGSM-eps4_test.labels.txt
+      NIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-NIFGSM-eps4_test.labels.txt
+      VNIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-VNIFGSM-eps4_test.labels.txt
+      SINIFGSM:
+        data_dir: 
+        imglist_pth: ./data/SP_general_new/cifar10-SINIFGSM-eps4_test.labels.txt
+      

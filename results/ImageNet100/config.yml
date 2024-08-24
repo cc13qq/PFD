@@ -1,0 +1,436 @@
+!!python/object/new:utils.config.Config
+state:
+  dataset:
+    name: DIS_ImageNet100
+    split_names: &id001
+    - train
+    - test
+    num_classes: 2
+    pre_size: 224
+    image_size: 256
+    num_workers: 8
+    num_gpus: 1
+    num_machines: 1
+    dataset_name: ImageNet100
+    mode: DIS
+    eps: 4
+    train:
+      dataset_class: ImglistDataset_SP
+      data_dir: null
+      imglist_pth: ./data/SP_general_new/imagenet100_train.labels.txt
+      batch_size: 100
+      shuffle: true
+      interpolation: bilinear
+    test:
+      dataset_class: ImglistDataset
+      batch_size: 50
+      shuffle: false
+      interpolation: bilinear
+      set_names: &id004
+      - Real
+      - Gradient-advs
+      Real:
+        data_dir: null
+        imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
+      Gradient-advs:
+        subsets: &id005
+        - BIM
+        - PGD
+        - RFGSM
+        - DIFGSM
+        - MIFGSM
+        - NIFGSM
+        - VNIFGSM
+        - SINIFGSM
+        BIM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+        PGD:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+        RFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+        DIFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+        MIFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+        NIFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+        VNIFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+        SINIFGSM:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+  exp_name: X_SP_base_DIS_ImageNet100_e10_lr0.0002_wd5e-06_loc3_cov5
+  output_dir: ./results/X_SP_base_DIS_ImageNet100_e10_lr0.0002_wd5e-06_loc3_cov5
+  save_output: true
+  force_merge: true
+  num_classes: 2
+  mark: loc3_cov5
+  num_gpus: 1
+  num_workers: 8
+  num_machines: 1
+  machine_rank: 0
+  sample_number: 1000
+  sample_from: 10000
+  select: 1
+  feature_dim: 2048
+  class_real: &id006
+  - 1
+  seed: 3407
+  pipeline:
+    name: SP_train
+  trainer:
+    name: SP_base
+    loss_weight: 0.1
+  evaluator:
+    name: SP
+    mode: loss
+    recall: 0.95
+    score_set: all
+    th_p: null
+    th_all: null
+  optimizer:
+    num_epochs: 10
+    logbatch: 100
+    learning_rate: 0.0002
+    lr: 0.0002
+    momentum: 0.9
+    weight_decay: 5.0e-06
+  recorder:
+    name: SP
+    save_all_models: false
+  preprocessor:
+    name: ImageNet
+  postprocessor:
+    name: SP
+    mode: loss
+    postprocessor_args:
+      temperature: 1
+  network:
+    name: X
+    num_classes: 2
+    pretrained: false
+    checkpoint: ./networks/xception-b5690688.pth
+    num_gpus: 1
+  start_epoch: 0
+dictitems:
+  dataset: !!python/object/new:utils.config.Config
+    state:
+      name: DIS_ImageNet100
+      split_names: *id001
+      num_classes: 2
+      pre_size: 224
+      image_size: 256
+      num_workers: 8
+      num_gpus: 1
+      num_machines: 1
+      dataset_name: ImageNet100
+      mode: DIS
+      eps: 4
+      train:
+        dataset_class: ImglistDataset_SP
+        data_dir: null
+        imglist_pth: ./data/SP_general_new/imagenet100_train.labels.txt
+        batch_size: 100
+        shuffle: true
+        interpolation: bilinear
+      test:
+        dataset_class: ImglistDataset
+        batch_size: 50
+        shuffle: false
+        interpolation: bilinear
+        set_names: *id004
+        Real:
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
+        Gradient-advs:
+          subsets: *id005
+          BIM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+          PGD:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+          RFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+          DIFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+          MIFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+          NIFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+          VNIFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+          SINIFGSM:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+    dictitems:
+      name: DIS_ImageNet100
+      split_names: *id001
+      num_classes: 2
+      pre_size: 224
+      image_size: 256
+      num_workers: 8
+      num_gpus: 1
+      num_machines: 1
+      dataset_name: ImageNet100
+      mode: DIS
+      eps: 4
+      train: !!python/object/new:utils.config.Config
+        state:
+          dataset_class: ImglistDataset_SP
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100_train.labels.txt
+          batch_size: 100
+          shuffle: true
+          interpolation: bilinear
+        dictitems:
+          dataset_class: ImglistDataset_SP
+          data_dir: null
+          imglist_pth: ./data/SP_general_new/imagenet100_train.labels.txt
+          batch_size: 100
+          shuffle: true
+          interpolation: bilinear
+      test: !!python/object/new:utils.config.Config
+        state:
+          dataset_class: ImglistDataset
+          batch_size: 50
+          shuffle: false
+          interpolation: bilinear
+          set_names: *id004
+          Real:
+            data_dir: null
+            imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
+          Gradient-advs:
+            subsets: *id005
+            BIM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+            PGD:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+            RFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+            DIFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+            MIFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+            NIFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+            VNIFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+            SINIFGSM:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+        dictitems:
+          dataset_class: ImglistDataset
+          batch_size: 50
+          shuffle: false
+          interpolation: bilinear
+          set_names: *id004
+          Real: !!python/object/new:utils.config.Config
+            state:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
+            dictitems:
+              data_dir: null
+              imglist_pth: ./data/SP_general_new/imagenet100_test.labels.txt
+          Gradient-advs: !!python/object/new:utils.config.Config
+            state:
+              subsets: *id005
+              BIM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+              PGD:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+              RFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+              DIFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+              MIFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+              NIFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+              VNIFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+              SINIFGSM:
+                data_dir: null
+                imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+            dictitems:
+              subsets: *id005
+              BIM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-BIM-eps4_test.labels.txt
+              PGD: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_test.labels.txt
+              RFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_test.labels.txt
+              DIFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-DIFGSM-eps4_test.labels.txt
+              MIFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-MIFGSM-eps4_test.labels.txt
+              NIFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-NIFGSM-eps4_test.labels.txt
+              VNIFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-VNIFGSM-eps4_test.labels.txt
+              SINIFGSM: !!python/object/new:utils.config.Config
+                state:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+                dictitems:
+                  data_dir: null
+                  imglist_pth: ./data/SP_general_new/imagenet100-SINIFGSM-eps4_test.labels.txt
+  exp_name: X_SP_base_DIS_ImageNet100_e10_lr0.0002_wd5e-06_loc3_cov5
+  output_dir: ./results/X_SP_base_DIS_ImageNet100_e10_lr0.0002_wd5e-06_loc3_cov5
+  save_output: true
+  force_merge: true
+  num_classes: 2
+  mark: loc3_cov5
+  num_gpus: 1
+  num_workers: 8
+  num_machines: 1
+  machine_rank: 0
+  sample_number: 1000
+  sample_from: 10000
+  select: 1
+  feature_dim: 2048
+  class_real: *id006
+  seed: 3407
+  pipeline: !!python/object/new:utils.config.Config
+    state:
+      name: SP_train
+    dictitems:
+      name: SP_train
+  trainer: !!python/object/new:utils.config.Config
+    state:
+      name: SP_base
+      loss_weight: 0.1
+    dictitems:
+      name: SP_base
+      loss_weight: 0.1
+  evaluator: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      mode: loss
+      recall: 0.95
+      score_set: all
+      th_p: null
+      th_all: null
+    dictitems:
+      name: SP
+      mode: loss
+      recall: 0.95
+      score_set: all
+      th_p: null
+      th_all: null
+  optimizer: !!python/object/new:utils.config.Config
+    state:
+      num_epochs: 10
+      logbatch: 100
+      learning_rate: 0.0002
+      lr: 0.0002
+      momentum: 0.9
+      weight_decay: 5.0e-06
+    dictitems:
+      num_epochs: 10
+      logbatch: 100
+      learning_rate: 0.0002
+      lr: 0.0002
+      momentum: 0.9
+      weight_decay: 5.0e-06
+  recorder: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      save_all_models: false
+    dictitems:
+      name: SP
+      save_all_models: false
+  preprocessor: !!python/object/new:utils.config.Config
+    state:
+      name: ImageNet
+    dictitems:
+      name: ImageNet
+  postprocessor: !!python/object/new:utils.config.Config
+    state:
+      name: SP
+      mode: loss
+      postprocessor_args:
+        temperature: 1
+    dictitems:
+      name: SP
+      mode: loss
+      postprocessor_args: !!python/object/new:utils.config.Config
+        state:
+          temperature: 1
+        dictitems:
+          temperature: 1
+  network: !!python/object/new:utils.config.Config
+    state:
+      name: X
+      num_classes: 2
+      pretrained: false
+      checkpoint: ./networks/xception-b5690688.pth
+      num_gpus: 1
+    dictitems:
+      name: X
+      num_classes: 2
+      pretrained: false
+      checkpoint: ./networks/xception-b5690688.pth
+      num_gpus: 1
+  start_epoch: 0

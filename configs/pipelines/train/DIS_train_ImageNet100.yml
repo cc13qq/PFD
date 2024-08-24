@@ -1,0 +1,69 @@
+exp_name: "'@{network.name}'_'@{trainer.name}'_'@{dataset.name}'_e'@{optimizer.num_epochs}'_lr'@{optimizer.lr}'_wd'@{optimizer.weight_decay}'_'@{mark}'"
+output_dir: ./results/
+save_output: True
+force_merge: True # disabled if 'save_output' is False
+num_classes: '@{dataset.num_classes}'
+mark: SP
+
+num_gpus: 1
+num_workers: 8
+num_machines: 1
+machine_rank: 0
+
+sample_number: 1000
+sample_from: 10000
+select: 1
+feature_dim: 2048  #resnet 512, lenet 120, xception_net 2048
+class_real: [1]
+
+seed: 3407
+
+pipeline:
+  name: SP_train
+
+trainer:
+  name: SP_base
+  loss_weight: 0.1
+
+evaluator:
+  name: SP
+  mode: loss
+  recall: 0.95
+  score_set: all
+  th_p:
+  th_all:
+
+optimizer:
+  num_epochs: 10
+  logbatch: 100
+  learning_rate: 2.0e-4
+  momentum: 0.9
+  weight_decay: 5.0e-6
+
+recorder:
+  name: SP
+  save_all_models: False
+
+preprocessor:
+  name: ImageNet
+
+postprocessor:
+  name: SP
+  mode: loss
+  postprocessor_args:
+    temperature: 1
+
+parameters:
+  var_loc: 3
+  var_cov: 0.005
+  eps_low: 1
+  eps_high: 20
+
+network:
+  name: X
+  num_classes: '@{dataset.num_classes}'
+  pretrained: False          # set 'True' to load pretrained model
+  checkpoint: './networks/xception-b5690688.pth'            # ignore if pretrained is false
+  num_gpus: '@{num_gpus}'
+
+start_epoch: 0
