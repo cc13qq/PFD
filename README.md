@@ -1,4 +1,4 @@
-## Code for paper "Detecting Adversarial Data via Perturbation Forgery". 
+## Code for paper "Detecting Adversarial Data Using Perturbation Forgery". 
 
 ## Get Started
 
@@ -35,6 +35,7 @@ configs/pipelines/train/DIS_test_CIFAR10.yml \
 --force_merge True\
 --preprocessor.name ImageNet 
 
+The checkpoints are coming soon...
 
 ```
 ## Dependencies
