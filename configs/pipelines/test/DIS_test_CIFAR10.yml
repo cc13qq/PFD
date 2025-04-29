@@ -50,7 +50,7 @@ network:
   pretrained: True          # set 'True' to load pretrained model
   #checkpoint: './results/train-X_sep-GC_CA-e10_lr0.0002_wd5e-06-eps10_70-prob16_40-sl2_25-th50_50/net-best_epoch4_batch1200acc0.8840.ckpt'
   # checkpoint: ./results/X_SP_base_SP_celebahq_e10_lr0.0002_wd5e-06_0/net-best_epoch4_batch1100acc0.9279.ckpt
-  checkpoint: ./results/X_sep_SP_base_DIS_CIFAR10_e10_lr0.0002_wd5e-06_DIS_base/net-best_epoch2_batch200auc0.9709.ckpt
+  checkpoint: ./checkpoints/cifar10_linf.ckpt
   # checkpoint: ./results/X_SP_base_LFW_ood_e10_lr0.0002_wd5e-06_0/net-best_epoch1_batch625acc1.0000.ckpt
   # checkpoint: ./results/X_SP_base/net-best_celebahq.ckpt
   num_gpus: '@{num_gpus}'
