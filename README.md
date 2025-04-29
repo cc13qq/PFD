@@ -2,7 +2,10 @@
 
 ## Get Started
 
-Datasets are CIFAR10 and ImageNet100.
+We use official CIFAR10 and ImageNet100 datasets for training. 
+All of the adversarial data are generated using torchattacks.
+The training and testing datasets are available [here](https://drive.google.com/drive/folders/1LNanBnj8_g34vhWl6ny8uWH48kG7HoCp?usp=sharing).
+Download these datasets and unzip them in the ```/data``` folder.
 
 Our codebase accesses the datasets from `./data/` and checkpoints from `./results/checkpoints/` by default.
 ```
@@ -17,13 +20,11 @@ Our codebase accesses the datasets from `./data/` and checkpoints from `./result
 ├── ...
 ```
 
-All of the adversarial data are generated using torchattacks.
-
 Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can directly download the distribution [here](https://pan.baidu.com/s/11gzCNm6S3eqzBmSegk0JaQ?pwd=z433). 
 Put distributions under 'data/dist/'.
 
 ### Checkpoints
-Download these checkpoints in the ```/checkpoints```
+Download these checkpoints in the ```/checkpoints``` folder.
 
 | Dataset | Attack | Checkpoints |
 | --- | --- | --- |
