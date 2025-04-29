@@ -1,12 +1,6 @@
 ## Code for paper "Detecting Adversarial Data Using Perturbation Forgery". 
 
 ## Get Started
-
-We use official CIFAR10 and ImageNet100 datasets for training. 
-All of the adversarial data are generated using torchattacks.
-The training and testing datasets are available [here](https://drive.google.com/drive/folders/1LNanBnj8_g34vhWl6ny8uWH48kG7HoCp?usp=sharing).
-Download these datasets and unzip them in the ```/data``` folder.
-
 Our codebase accesses the datasets from `./data/` and checkpoints from `./results/checkpoints/` by default.
 ```
 ├── ...
@@ -19,6 +13,12 @@ Our codebase accesses the datasets from `./data/` and checkpoints from `./result
 ├── main.py
 ├── ...
 ```
+
+### Dataset
+We use official CIFAR10 and ImageNet100 datasets for training. 
+All of the adversarial data are generated using [torchattacks](https://github.com/Harry24k/adversarial-attacks-pytorch).
+The training and testing datasets are available [here](https://drive.google.com/drive/folders/1LNanBnj8_g34vhWl6ny8uWH48kG7HoCp?usp=sharing).
+Download these datasets and unzip them in the ```/data``` folder.
 
 Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can directly download the distribution [here](https://pan.baidu.com/s/11gzCNm6S3eqzBmSegk0JaQ?pwd=z433). 
 Put distributions under 'data/dist/'.
