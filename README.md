@@ -77,9 +77,11 @@ python 3.8.8, PyTorch = 1.10.0, cudatoolkit = 11.7, torchvision, tqdm, scikit-le
 ```
 
 ### Citation
-@inproceedings{zhangs2023EPSAD,
-  title={Detecting Adversarial Data by Probing Multiple Perturbations Using Expected Perturbation Score},
-  author={Zhang, Shuhai and Liu, Feng and Yang, Jiahao and Yang, Yifan and Li, Changsheng and Han, Bo and Tan, Mingkui},
-  booktitle = {International Conference on Machine Learning (ICML)},
+```
+@article{wang2023detecting,
+  title={Detecting adversarial faces using only real face self-perturbations},
+  author={Wang, Qian and Xian, Yongqin and Ling, Hefei and Zhang, Jinyuan and Lin, Xiaorui and Li, Ping and Chen, Jiazhong and Yu, Ning},
+  journal={arXiv preprint arXiv:2304.11359},
   year={2023}
 }
+```
