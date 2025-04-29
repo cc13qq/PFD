@@ -48,17 +48,24 @@ configs/pipelines/train/DIS_train_ImageNet100.yml \
 --preprocessor.name ImageNet
 
 # Test
-### Test detector against gradient-based adversarial attacks on CIFAR-10
+### Test detector against gradient-based Linf adversarial attacks on CIFAR-10
 python main.py \
 --config configs/datasets/general/DIS_CIFAR10.yml \
-configs/pipelines/train/DIS_test_CIFAR10.yml \
+configs/pipelines/test/DIS_test_CIFAR10.yml \
 --force_merge True\
 --preprocessor.name base 
 
-### Test detector against gradient-based adversarial attacks on ImageNet100
+### Test detector against gradient-based Linf adversarial attacks on ImageNet100
 python main.py \
 --config configs/datasets/general/DIS_ImageNet100.yml \
-configs/pipelines/train/DIS_test_ImageNet100.yml \
+configs/pipelines/test/DIS_test_ImageNet100.yml \
+--force_merge True\
+--preprocessor.name ImageNet 
+
+### Test detector against generative-based adversarial attacks on ImageNet100
+python main.py \
+--config configs/datasets/general/DIS_GAN_Diffusion.yml \
+configs/pipelines/test/DIS_test_ImageNet100_generative.yml \
 --force_merge True\
 --preprocessor.name ImageNet 
 
