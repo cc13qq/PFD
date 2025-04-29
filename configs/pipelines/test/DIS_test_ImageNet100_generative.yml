@@ -1,0 +1,53 @@
+exp_name: "'@{pipeline.name}'_'@{network.name}'_'@{dataset.name}'_'@{mark}'"
+output_dir: ./results/
+save_output: True
+force_merge: True # disabled if 'save_output' is False
+num_classes: '@{dataset.num_classes}'
+mark: DIS_ImageNet100_generative # to mark the version of experiment
+
+num_gpus: 1
+num_workers: 8
+num_machines: 1
+machine_rank: 0
+epoch: 1
+
+seed: 3407
+
+pipeline:
+  name: SP_test_base
+
+evaluator:
+  name: SP
+  mode: loss
+  recall: 0.99
+  score_set: all
+  th_p: 0.9
+  th_all: null
+
+recorder:
+  name: SP
+  save_scores: True
+  save_csv: True
+
+preprocessor:
+  name: ImageNet
+
+postprocessor:
+  name: SP
+  mode: loss
+  postprocessor_args:
+    temperature: 1
+
+parameters:
+  var_loc: 3
+  var_cov: 0.005
+  eps_low: 1
+  eps_high: 20
+
+network:
+  name: X_sep
+  num_classes: '@{dataset.num_classes}'
+  pretrained: True          # set 'True' to load pretrained model
+  checkpoint: ./results/X_SP_base_DIS_ImageNet100_e10_lr0.0002_wd5e-06_loc3_cov5/net-best_epoch5_batch4600auc0.9912.ckpt
+  num_gpus: '@{num_gpus}'
+
