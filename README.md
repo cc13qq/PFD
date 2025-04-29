@@ -9,6 +9,8 @@ Our codebase accesses the datasets from `./data/` and checkpoints from `./result
 ├── ...
 ├── data
 │   
+├── checkpoints
+│   
 ├── results
 │   
 ├── main.py
@@ -21,6 +23,7 @@ Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can 
 Put distributions under 'data/dist/'.
 
 ### Checkpoints
+Download these checkpoints in the ```/checkpoints```
 
 | Dataset | Attack | Checkpoints |
 | --- | --- | --- |
