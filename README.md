@@ -22,14 +22,11 @@ Put distributions under 'data/dist/'.
 
 ### Ckeckpoints
 
-| 列1 | 列2 | 列3 |
-| --- | --- | --- |
+| Dataset | Attack | Checkpoints |
+| CIFAR-10 | Linf | [ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing) |
 | 内容1 | 内容2 | 内容3 |
 | 内容4 | 内容5 | 内容6 |
 
-
-| Dataset | Attack | Checkpoints |
-| CIFAR-10 | Linf | [ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing) |
 
 # Train Detector
 ### Train detector against gradient-based adversarial attacks on CIFAR-10
