@@ -1,6 +1,6 @@
 dataset:
   name: DIS_GAN_Diffusion
-  split_names: [train, val, test]
+  split_names: [train, test]
   num_classes: 2
   pre_size: 256
   image_size: 256
@@ -17,25 +17,6 @@ dataset:
     batch_size: 32
     shuffle: True
     interpolation: bilinear
-  val:
-    dataset_class: ImglistDataset
-    batch_size: 32
-    shuffle: False
-    interpolation: bilinear
-
-    set_names: [Real, Generative-advs]
-    Real:
-      data_dir: 
-      imglist_pth: ./data/SP_general_new/imagenet100-real-img-eps4_val.labels.txt
-    Generative-advs:
-      subsets: [CDA, diff-pgd]
-      CDA:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-FGSM-eps4_val.labels.txt
-      diff-pgd:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-RFGSM-eps4_val.labels.txt
-
   test:
     dataset_class: ImglistDataset
     batch_size: 32
