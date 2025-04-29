@@ -1,6 +1,6 @@
 dataset:
   name: DIS_CIFAR10
-  split_names: [train, val, test]
+  split_names: [train, test]
   num_classes: 2
   pre_size: 32
   image_size: 256
@@ -17,25 +17,6 @@ dataset:
     batch_size: 32
     shuffle: True
     interpolation: bilinear
-  val:
-    dataset_class: ImglistDataset
-    batch_size: 32
-    shuffle: False
-    interpolation: bilinear
-
-    set_names: [Real, Gradient-advs]
-    Real:
-      data_dir: 
-      imglist_pth: ./data/SP_general_new/cifar10_val.labels.txt
-    Gradient-advs:
-      subsets: ['FGSM', 'PGD']
-      FGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/cifar10-FGSM-eps4_val.labels.txt
-      PGD:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/cifar10-PGD-eps4_val.labels.txt
-
   test:
     dataset_class: ImglistDataset
     batch_size: 32
