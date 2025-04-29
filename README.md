@@ -20,12 +20,13 @@ All of the adversarial data are generated using torchattacks.
 Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can directly download the distribution [here](https://pan.baidu.com/s/11gzCNm6S3eqzBmSegk0JaQ?pwd=z433). 
 Put distributions under 'data/dist/'.
 
-### Ckeckpoints
+### Checkpoints
 
 | Dataset | Attack | Checkpoints |
+| --- | --- | --- |
 | CIFAR-10 | Linf | [ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing) |
-| 内容1 | 内容2 | 内容3 |
-| 内容4 | 内容5 | 内容6 |
+| ImageNet100 | Linf | [ckpt](https://drive.google.com/file/d/1z6qO4ABCM8xNYuPq5XwZujmcev04Wxun/view?usp=sharing) |
+| ImageNet100 | Generative | [ckpt](https://drive.google.com/file/d/1-ar86SVwSg3D42rOju-LLadjei4tk-Ar/view?usp=sharing) |
 
 
 # Train Detector
