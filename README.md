@@ -75,3 +75,11 @@ configs/pipelines/test/DIS_test_ImageNet100_generative.yml \
 ## Dependencies
 python 3.8.8, PyTorch = 1.10.0, cudatoolkit = 11.7, torchvision, tqdm, scikit-learn, mmcv, numpy, opencv-python, dlib, Pillow
 ```
+
+### Citation
+@inproceedings{zhangs2023EPSAD,
+  title={Detecting Adversarial Data by Probing Multiple Perturbations Using Expected Perturbation Score},
+  author={Zhang, Shuhai and Liu, Feng and Yang, Jiahao and Yang, Yifan and Li, Changsheng and Han, Bo and Tan, Mingkui},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year={2023}
+}
