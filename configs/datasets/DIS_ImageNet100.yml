@@ -1,6 +1,6 @@
 dataset:
   name: DIS_ImageNet100
-  split_names: [train, val, test]
+  split_names: [train, test]
   num_classes: 2
   pre_size: 224
   image_size: 256
