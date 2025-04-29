@@ -17,25 +17,6 @@ dataset:
     batch_size: 32
     shuffle: True
     interpolation: bilinear
-  val:
-    dataset_class: ImglistDataset
-    batch_size: 32
-    shuffle: False
-    interpolation: bilinear
-
-    set_names: [Real, Gradient-advs]
-    Real:
-      data_dir: 
-      imglist_pth: ./data/SP_general_new/imagenet100_val.labels.txt
-    Gradient-advs:
-      subsets: ['FGSM', 'PGD']
-      FGSM:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-FGSM-eps4_val.labels.txt
-      PGD:
-        data_dir: 
-        imglist_pth: ./data/SP_general_new/imagenet100-PGD-eps4_val.labels.txt
-
   test:
     dataset_class: ImglistDataset
     batch_size: 32
