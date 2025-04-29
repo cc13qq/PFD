@@ -29,7 +29,7 @@ Put distributions under 'data/dist/'.
 
 
 | Dataset | Attack | Checkpoints |
-|CIFAR-10|Linf|[ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing)|
+| CIFAR-10 | Linf | [ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing) |
 
 # Train Detector
 ### Train detector against gradient-based adversarial attacks on CIFAR-10
