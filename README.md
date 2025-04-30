@@ -30,8 +30,6 @@ We offer checkpoints for testing. Download these checkpoints in the ```/checkpoi
 | --- | --- | --- |
 | CIFAR-10 | Linf | [ckpt](https://drive.google.com/file/d/1h_WA_ox5yOtwR8got0IvxiCZUP_tWDR4/view?usp=sharing) |
 | ImageNet100 | Linf | [ckpt](https://drive.google.com/file/d/1z6qO4ABCM8xNYuPq5XwZujmcev04Wxun/view?usp=sharing) |
-| ImageNet100 | Generative | [ckpt](https://drive.google.com/file/d/1-ar86SVwSg3D42rOju-LLadjei4tk-Ar/view?usp=sharing) |
-
 
 # Train Detector
 ### Train detector against gradient-based adversarial attacks on CIFAR-10
@@ -60,13 +58,6 @@ configs/pipelines/test/DIS_test_CIFAR10.yml \
 python main.py \
 --config configs/datasets/general/DIS_ImageNet100.yml \
 configs/pipelines/test/DIS_test_ImageNet100.yml \
---force_merge True\
---preprocessor.name ImageNet 
-
-### Test detector against generative-based adversarial attacks on ImageNet100
-python main.py \
---config configs/datasets/general/DIS_GAN_Diffusion.yml \
-configs/pipelines/test/DIS_test_ImageNet100_generative.yml \
 --force_merge True\
 --preprocessor.name ImageNet 
 
