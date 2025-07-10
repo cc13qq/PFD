@@ -49,14 +49,14 @@ configs/pipelines/train/DIS_train_ImageNet100.yml \
 # Test
 ### Test detector against gradient-based Linf adversarial attacks on CIFAR-10
 python main.py \
---config configs/datasets/general/DIS_CIFAR10.yml \
+--config configs/datasets/DIS_CIFAR10.yml \
 configs/pipelines/test/DIS_test_CIFAR10.yml \
 --force_merge True\
 --preprocessor.name base 
 
 ### Test detector against gradient-based Linf adversarial attacks on ImageNet100
 python main.py \
---config configs/datasets/general/DIS_ImageNet100.yml \
+--config configs/datasets/DIS_ImageNet100.yml \
 configs/pipelines/test/DIS_test_ImageNet100.yml \
 --force_merge True\
 --preprocessor.name ImageNet 
