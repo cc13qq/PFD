@@ -45,7 +45,7 @@ parameters:
   eps_high: 20
 
 network:
-  name: X
+  name: X_sep
   num_classes: '@{dataset.num_classes}'
   pretrained: True          # set 'True' to load pretrained model
   #checkpoint: './results/train-X_sep-GC_CA-e10_lr0.0002_wd5e-06-eps10_70-prob16_40-sl2_25-th50_50/net-best_epoch4_batch1200acc0.8840.ckpt'
