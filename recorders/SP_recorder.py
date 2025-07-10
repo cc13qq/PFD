@@ -20,9 +20,9 @@ class SPRecorder:
     def report(self, train_metrics, val_metrics):
         # train_metrics: ['loss', 'epoch_idx']
         '''
-        val/test metrics:   dict[metrics_set, loss, acc, auc, epoch_idx, batch_idx]
-                 metrics_set:    dict[metrics_subset, loss, acc, auc]
-                 metrics_subset:    dict[loss, acc, auc, num_loss, num_acc]
+        val/test metrics:   dict[metrics_set, loss, auc, epoch_idx, batch_idx]
+                 metrics_set:    dict[metrics_subset, loss, auc]
+                 metrics_subset:    dict[loss, auc, num_loss, num_acc]
         '''
 
         if train_metrics is not None:
@@ -30,25 +30,25 @@ class SPRecorder:
                     train_metrics['epoch_idx'], train_metrics['batch_idx'], int(time.time() - self.begin_time), train_metrics['loss']), flush=True)
 
         if val_metrics is not None:
-            print('Val AvgLoss {:.4f} | Val AvgAcc {:.4f} | Val AvgAUC {:.4f}'.format(
-                val_metrics['loss'], val_metrics['acc'], val_metrics['auc']), flush=True)
+            print('Val AvgLoss {:.4f} | Val AvgAUC {:.4f}'.format(
+                val_metrics['loss'], val_metrics['auc']), flush=True)
 
             for set in val_metrics:
-                if set in ['loss', 'acc', 'auc', 'epoch_idx', 'batch_idx']:
+                if set in ['loss', 'auc', 'epoch_idx', 'batch_idx']:
                     continue
                 if set == 'Real':
-                    print('\t Val metrics on set '+ set + ': Loss {:.4f} | Acc {:.4f}'.format(
-                        val_metrics[set]['loss'], val_metrics[set]['acc']), flush=True)
+                    print('\t Val metrics on set '+ set + ': Loss {:.4f}'.format(
+                        val_metrics[set]['loss']), flush=True)
                     continue
                 else:
-                    print('\t Val metrics on set '+ set + ': AvgLoss {:.4f} | AvgAcc {:.4f} | AvgAUC {:.4f}'.format(
-                        val_metrics[set]['loss'], val_metrics[set]['acc'], val_metrics[set]['auc']), flush=True)
+                    print('\t Val metrics on set '+ set + ': AvgLoss {:.4f} | AvgAUC {:.4f}'.format(
+                        val_metrics[set]['loss'], val_metrics[set]['auc']), flush=True)
 
                     for subset in val_metrics[set]:
-                        if subset in ['loss', 'acc', 'auc']:
+                        if subset in ['loss', 'auc']:
                             continue
-                        print('\t \t Val metrics on subset '+ subset + ': Loss {:.4f} | Acc {:.4f} | AUC {:.4f}'.format(
-                            val_metrics[set][subset]['loss'], val_metrics[set][subset]['acc'], val_metrics[set][subset]['auc']), flush=True)
+                        print('\t \t Val metrics on subset '+ subset + ': Loss {:.4f} | AUC {:.4f}'.format(
+                            val_metrics[set][subset]['loss'], val_metrics[set][subset]['auc']), flush=True)
 
     def save_model(self, nets, val_metrics):
 
