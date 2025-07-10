@@ -20,7 +20,7 @@ All of the adversarial data are generated using [torchattacks](https://github.co
 The training and testing datasets are available [here](https://drive.google.com/drive/folders/1LNanBnj8_g34vhWl6ny8uWH48kG7HoCp?usp=sharing).
 Download these datasets and unzip them in the ```/data``` folder.
 
-Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can directly download the distribution [here](https://pan.baidu.com/s/11gzCNm6S3eqzBmSegk0JaQ?pwd=z433). 
+Generate noise by gen_noise.py and extract distribution by gen_dist.py. You can directly download the distribution from [Baidu Disk](https://pan.baidu.com/s/11gzCNm6S3eqzBmSegk0JaQ?pwd=z433) or [Google Disk](https://drive.google.com/drive/folders/1MJ-st_Auw74irIy1hdk14dPk-n-CTnlH?usp=sharing). 
 Put distributions under 'data/dist/'.
 
 ### Checkpoints
