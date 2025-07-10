@@ -14,7 +14,7 @@ epoch: 1
 seed: 3407
 
 pipeline:
-  name: SP_test_base
+  name: SP_test
 
 evaluator:
   name: SP
